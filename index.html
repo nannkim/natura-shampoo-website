@@ -315,7 +315,7 @@
         .cart-sidebar {
             position: fixed;
             right: -400px;
-            top: 0;
+            top: -400;
             width: 380px;
             height: 100vh;
             background: white;
@@ -544,7 +544,7 @@
                         Soothes and balances the scalp while promoting healthy hair growth. For sensitive or irritated scalp.
                     </p>
                     <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                        <span itemprop="price" content="11.6">$11.6</span>
+                        <span itemprop="price" content="11.60">$11.60</span>
                         <meta itemprop="priceCurrency" content="USD">
                     </div>
                     
@@ -557,7 +557,7 @@
                     
                     <p class="benefits">Soothed Scalp • Reduced Irritation • Healthy Growth • Balance</p>
                     
-                    <button class="btn" onclick="addToCart(3)">Add to Cart · $11.6</button>
+                    <button class="btn" onclick="addToCart(3)">Add to Cart · $11.60</button>
                     <button class="btn btn-secondary" onclick="showProductDetails(3)">Learn More</button>
                 </div>
             </div>
@@ -614,7 +614,7 @@
             const products = {
                 1: { id: 1, name: "Canado Pro Shampoo", price: 5.80 },
                 2: { id: 2, name: "Canado Pro Conditioner", price: 5.89 },
-                3: { id: 3, name: "Set Shampoo & Conditioner", price: 11.6 }
+                3: { id: 3, name: "Set Shampoo & Conditioner", price: 11.60 }
             };
             
             cart.push(products[productId]);
