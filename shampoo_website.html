@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natura | Premium Organic Shampoo</title>
+    <style>
+        /* Apple-style CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .apple-header {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+        }
+
+        .apple-subheader {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #86868b;
+            margin-bottom: 2rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #86868b;
+            margin-bottom: 3rem;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Product Card */
+        .product-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2.5rem;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+        }
+
+        .product-description {
+            color: #86868b;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Features */
+        .feature-tag {
+            background: #f5f5f7;
+            color: #515154;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.3rem;
+            display: inline-block;
+        }
+
+        .features {
+            margin: 1.5rem 0;
+        }
+
+        /* Benefits */
+        .benefits {
+            color: #515154;
+            font-size: 0.95rem;
+            margin: 1.5rem 0;
+            line-height: 1.5;
+        }
+
+        /* Buttons */
+        .btn {
+            background: #0071e3;
+            color: white;
+            border: none;
+            padding: 0.9rem 2.5rem;
+            border-radius: 12px;
+            font-family: inherit;
+            font-weight: 500;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+
+        .btn:hover {
+            background: #0077ed;
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0,113,227,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #0071e3;
+            border: 1px solid #0071e3;
+        }
+
+        .btn-secondary:hover {
+            background: #0071e3;
+            color: white;
+        }
+
+        /* Cart */
+        .cart-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 350px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: #0071e3;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,113,227,0.3);
+            z-index: 1001;
+        }
+
+        /* Footer */
+        .footer {
+            background: #f5f5f7;
+            padding: 4rem 2rem;
+            margin-top: 6rem;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer h4 {
+            color: #1d1d1f;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            color: #86868b;
+            line-height: 1.6;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            color: #86868b;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Hero Section -->
+    <header class="header">
+        <div class="container">
+            <h1 class="apple-header">Natura</h1>
+            <p class="apple-subheader">Organic Shampoo. Radical Results.</p>
+            <p style="font-size: 1.3rem; color: #515154; max-width: 600px; margin: 0 auto;">
+                Formulated with nature's finest ingredients. Transforming hair care through purity and performance.
+            </p>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">The Natura Collection</h2>
+            <p class="section-subtitle">Three extraordinary formulas. One perfect choice.</p>
+            
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <h3 class="product-name">Natura Organic Shampoo</h3>
+                    <p class="product-description">
+                        Crafted with 100% organic ingredients for hair that radiates health and vitality. Gentle enough for daily use.
+                    </p>
+                    <div class="product-price">$29.99</div>
+                    
+                    <div class="features">
+                        <span class="feature-tag">100% Organic</span>
+                        <span class="feature-tag">Cruelty Free</span>
+                        <span class="feature-tag">Vegan</span>
+                        <span class="feature-tag">Eco Packaging</span>
+                    </div>
+                    
+                    <p class="benefits">Deep Hydration • Scalp Health • Natural Shine • Daily Use</p>
+                    
+                    <button class="btn" onclick="addToCart(1)">Add to Cart · $29.99</button>
+                    <button class="btn btn-secondary" onclick="showProductDetails(1)">Learn More</button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <h3 class="product-name">Natura Volume Boost</h3>
+                    <p class="product-description">
+                        Lightweight formula that adds body and bounce without weighing hair down. For fine or flat hair.
+                    </p>
+                    <div class="product-price">$32.99</div>
+                    
+                    <div class="features">
+                        <span class="feature-tag">Volume Boost</span>
+                        <span class="feature-tag">Lightweight</span>
+                        <span class="feature-tag">Sulfate Free</span>
+                        <span class="feature-tag">Color Safe</span>
+                    </div>
+                    
+                    <p class="benefits">Fuller Hair • Long-Lasting Volume • Strength • Body</p>
+                    
+                    <button class="btn" onclick="addToCart(2)">Add to Cart · $32.99</button>
+                    <button class="btn btn-secondary" onclick="showProductDetails(2)">Learn More</button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <h3 class="product-name">Natura Scalp Therapy</h3>
+                    <p class="product-description">
+                        Soothes and balances the scalp while promoting healthy hair growth. For sensitive or irritated scalp.
+                    </p>
+                    <div class="product-price">$34.99</div>
+                    
+                    <div class="features">
+                        <span class="feature-tag">Scalp Care</span>
+                        <span class="feature-tag">Dandruff Control</span>
+                        <span class="feature-tag">pH Balanced</span>
+                        <span class="feature-tag">Therapeutic</span>
+                    </div>
+                    
+                    <p class="benefits">Soothed Scalp • Reduced Irritation • Healthy Growth • Balance</p>
+                    
+                    <button class="btn" onclick="addToCart(3)">Add to Cart · $34.99</button>
+                    <button class="btn btn-secondary" onclick="showProductDetails(3)">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Toggle Button -->
+    <button class="cart-toggle" onclick="toggleCart()">🛒</button>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <h2 style="color: #1d1d1f; margin-bottom: 2rem;">Your Cart</h2>
+        <div id="cartItems">
+            <p style="color: #86868b;">Your cart is empty</p>
+        </div>
+        <div id="cartTotal" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #f0f0f0;"></div>
+        <button class="btn" onclick="checkout()" style="margin-top: 1rem;">Proceed to Checkout</button>
+        <button class="btn btn-secondary" onclick="clearCart()" style="margin-top: 0.5rem;">Clear Cart</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Natura</h4>
+                <p>Premium organic hair care that makes a difference for you and the planet.</p>
+            </div>
+            <div>
+                <h4>Shop</h4>
+                <p>All Products<br>Best Sellers<br>New Arrivals<br>Gift Sets</p>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <p>Contact Us<br>Shipping & Returns<br>FAQ<br>Track Order</p>
+            </div>
+            <div>
+                <h4>About</h4>
+                <p>Our Story<br>Sustainability<br>Ingredients<br>Press</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2024 Natura Organic. All rights reserved. | Privacy Policy | Terms of Use</p>
+        </div>
+    </footer>
+
+    <script>
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        function addToCart(productId) {
+            const products = {
+                1: { id: 1, name: "Natura Organic Shampoo", price: 29.99 },
+                2: { id: 2, name: "Natura Volume Boost", price: 32.99 },
+                3: { id: 3, name: "Natura Scalp Therapy", price: 34.99 }
+            };
+            
+            cart.push(products[productId]);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+            showNotification(`Added ${products[productId].name} to cart!`);
+        }
+        
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="color: #86868b;">Your cart is empty</p>';
+                cartTotal.innerHTML = '';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                itemsHTML += `
+                    <div style="border-bottom: 1px solid #f0f0f0; padding: 0.8rem 0;">
+                        <strong>${item.name}</strong><br>
+                        <span style="color: #86868b;">$${item.price}</span>
+                    </div>
+                `;
+                total += item.price;
+            });
+            
+            cartItems.innerHTML = itemsHTML;
+            cartTotal.innerHTML = `<h3 style="color: #1d1d1f;">Total: $${total.toFixed(2)}</h3>`;
+        }
+        
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            sidebar.classList.toggle('open');
+        }
+        
+        function clearCart() {
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+            showNotification('Cart cleared!');
+        }
+        
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!');
+                return;
+            }
+            
+            // Show confetti effect
+            showNotification('🎉 Checkout successful! Thank you for your order!');
+            clearCart();
+            toggleCart();
+        }
+        
+        function showProductDetails(productId) {
+            const productNames = {
+                1: "Natura Organic Shampoo",
+                2: "Natura Volume Boost", 
+                3: "Natura Scalp Therapy"
+            };
+            showNotification(`Details for ${productNames[productId]} would open here!`);
+        }
+        
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #0071e3;
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 12px;
+                box-shadow: 0 8px 25px rgba(0,113,227,0.3);
+                z-index: 1002;
+                font-weight: 500;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Initialize cart display
+        updateCartDisplay();
+    </script>
+</body>
+</html>
