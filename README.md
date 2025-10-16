@@ -3,7 +3,7 @@
 A premium, Apple-style e-commerce website for organic shampoo products.
 
 ## 🌐 Live Website
-https://YOUR_USERNAME.github.io/natura-shampoo-website/
+https://nannkim.github.io/natura-shampoo-website/
 
 ## 🚀 Features
 - Apple-inspired minimalist design
